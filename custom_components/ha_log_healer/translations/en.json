@@ -1,0 +1,20 @@
+﻿{
+  "config": {
+    "step": {
+      "user": {
+        "title": "Configure HA Log Healer",
+        "description": "Enter your OpenAI-compatible API details (Groq, OpenRouter, DeepSeek).",
+        "data": {
+          "api_key": "API Key",
+          "base_url": "Base URL (e.g. https://api.groq.com/openai/v1)",
+          "model": "Model Name (e.g. llama-3.1-8b-instant)"
+        }
+      }
+    },
+    "error": {
+      "cannot_connect": "Failed to connect to the API",
+      "invalid_auth": "Invalid authentication",
+      "unknown": "Unexpected error"
+    }
+  }
+}
