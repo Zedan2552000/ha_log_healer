@@ -1,0 +1,12 @@
+﻿{
+  "domain": "ha_log_healer",
+  "name": "HA Log Healer (AI Admin)",
+  "version": "1.0.0",
+  "documentation": "https://github.com/zedan/ha_log_healer",
+  "issue_tracker": "https://github.com/zedan/ha_log_healer/issues",
+  "dependencies": [],
+  "codeowners": ["@zedan"],
+  "requirements": ["openai>=1.0.0"],
+  "iot_class": "cloud_polling",
+  "config_flow": true
+}
