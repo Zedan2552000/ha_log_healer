@@ -1,38 +1,47 @@
-﻿# HA Log Healer (طبيب سيرفر Home Assistant) 🩺🤖
+﻿# HA Log Healer (AI SysAdmin) 🩺🤖
 
-![HA Log Healer](https://img.shields.io/badge/Home_Assistant-Custom_Component-blue)
-![Version](https://img.shields.io/badge/version-1.0.0-green)
+[![hacs_badge](https://img.shields.io/badge/HACS-Custom-orange.svg?style=for-the-badge)](https://github.com/hacs/integration)
+[![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg?style=for-the-badge)](https://opensource.org/licenses/MIT)
 
-A unique Home Assistant custom integration that automatically reads your `home-assistant.log`, detects errors and warnings, and uses AI (Groq, OpenRouter, DeepSeek, OpenAI) to analyze the traceback and provide a human-readable solution in Arabic (or English).
+A smart, open-source Home Assistant custom integration that acts as your personal AI System Administrator. It automatically reads your `home-assistant.log`, detects cryptic `ERROR` and `WARNING` traces, and uses AI (via OpenAI-compatible endpoints like Groq, OpenRouter, DeepSeek, or Anthropic Claude) to analyze the traceback and provide a human-readable, step-by-step solution.
 
-إضافة حصرية لـ Home Assistant تقوم بقراءة ملف الأخطاء (Logs) الخاص بالسيرفر، وتستخدم الذكاء الاصطناعي (مثل Groq السريع أو DeepSeek) لتحليل الأكواد المكسورة وتقديم الحل المناسب باللغة العربية البسيطة.
+## 🌟 Why HA Log Healer?
+Home Assistant logs can be overwhelming for users. When an integration crashes or a YAML template fails, the resulting traceback is often difficult to decipher. HA Log Healer bridges the gap between complex logs and actionable solutions by leveraging Large Language Models (LLMs) to diagnose and explain the issue natively within your Home Assistant dashboard.
 
-## 🚀 المميزات (Features)
-- 📝 **قراءة تلقائية:** يسحب آخر 200 سطر من ملف الـ log ويبحث عن `ERROR` أو `WARNING`.
-- 🧠 **تحليل بالذكاء الاصطناعي:** يرسل الأخطاء لأي واجهة متوافقة مع OpenAI (مثل Groq لسرعة فائقة).
-- 💡 **حلول مبسطة:** يترجم الأكواد المعقدة إلى خطوات حل واضحة ومباشرة.
-- ⚙️ **إعداد من الواجهة (UI Config):** لا يتطلب كتابة YAML، يتم إدخال الـ API Key من واجهة Integrations مباشرة.
+## 🚀 Features
+- 📝 **Automated Log Extraction:** Seamlessly extracts the latest error traces from your local `home-assistant.log`.
+- 🧠 **AI-Powered Diagnostics:** Sends tracebacks to your preferred LLM and translates them into actionable fixes.
+- ⚡ **Universal Compatibility:** Works with any OpenAI-compatible API endpoint (Groq for ultra-low latency, Claude/OpenRouter for deep reasoning).
+- ⚙️ **No YAML Required:** Fully configurable via the Home Assistant UI (Config Flows).
 
-## 🛠️ التثبيت (Installation)
+## 🛠️ Installation
 
-### عن طريق HACS (موصى به)
-1. اذهب إلى **HACS** > **Integrations**.
-2. اضغط على الـ 3 نقاط أعلى اليمين واختر **Custom repositories**.
-3. أضف رابط هذا المستودع كـ `Integration`.
-4. ابحث عن `HA Log Healer` وقم بتثبيته.
-5. أعد تشغيل Home Assistant.
+### Method 1: HACS (Recommended)
+1. Navigate to **HACS** > **Integrations**.
+2. Click the three dots (top right) and select **Custom repositories**.
+3. Add this repository URL as an `Integration`.
+4. Search for `HA Log Healer` and click Download.
+5. Restart Home Assistant.
 
-### يدوياً (Manual)
-1. قم بتحميل المجلد `custom_components/ha_log_healer`.
-2. ضعه داخل مجلد `custom_components` في سيرفرك.
-3. أعد تشغيل Home Assistant.
+### Method 2: Manual
+1. Download the `custom_components/ha_log_healer` directory.
+2. Place it inside your Home Assistant `custom_components` directory.
+3. Restart Home Assistant.
 
-## ⚙️ الإعدادات (Configuration)
-1. اذهب إلى **Settings** > **Devices & Services** > **Add Integration**.
-2. ابحث عن **HA Log Healer**.
-3. أدخل الـ API Key (مثلاً الخاص بـ Groq أو OpenRouter).
-4. اضغط Submit.
+## ⚙️ Configuration
+1. Go to **Settings** > **Devices & Services** > **Add Integration**.
+2. Search for **HA Log Healer**.
+3. Enter your AI provider details:
+   - **API Key**: Your provider's API key.
+   - **Base URL**: e.g., `https://api.groq.com/openai/v1`
+   - **Model**: e.g., `llama-3.1-8b-instant` or `claude-3-5-sonnet-20240620`
+4. Click Submit.
 
-## 🖱️ كيفية الاستخدام
-الإضافة توفر خدمة (Service) باسم `ha_log_healer.analyze_logs`.
-بمجرد استدعاء هذه الخدمة، ستقوم بقراءة الأخطاء وتحليلها، ثم حفظ الحل في الكيان (Entity) الخاص بها: `sensor.ha_log_healer_analysis`.
+## 🖱️ Usage
+Call the `ha_log_healer.analyze_logs` service from your Developer Tools or any Automation. The integration will parse the latest errors and update the `sensor.ha_log_healer_analysis` entity with a clear, step-by-step solution!
+
+## 🤝 Contributing
+Contributions are welcome! Please feel free to submit a Pull Request to improve the integration. Let's make Home Assistant easier for everyone.
+
+## 📄 License
+This project is licensed under the MIT License - see the LICENSE file for details.
