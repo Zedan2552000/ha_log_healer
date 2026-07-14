@@ -33,7 +33,7 @@ async def analyze_latest_logs(hass, config_data):
     base_url = config_data.get(CONF_BASE_URL)
     model = config_data.get(CONF_MODEL)
     
-    prompt = f"Analyze the following Home Assistant logs and provide a short, human-readable explanation of the error and a step-by-step solution in Arabic:\n\n{errors}"
+    prompt = f"Analyze the following Home Assistant logs and provide a short, human-readable explanation of the error and a step-by-step solution:\n\n{errors}"
     
     headers = {
         "Authorization": f"Bearer {api_key}",
@@ -42,7 +42,7 @@ async def analyze_latest_logs(hass, config_data):
     payload = {
         "model": model,
         "messages": [
-            {"role": "system", "content": "You are a Home Assistant expert administrator. Analyze the logs and provide a fix in clear Arabic."},
+            {"role": "system", "content": "You are an expert Home Assistant administrator and Open Source contributor. Analyze the logs and provide a clear, concise fix in English."},
             {"role": "user", "content": prompt}
         ],
         "temperature": 0.3,
