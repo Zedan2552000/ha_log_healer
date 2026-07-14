@@ -1,0 +1,6 @@
+﻿DOMAIN = "ha_log_healer"
+CONF_API_KEY = "api_key"
+CONF_BASE_URL = "base_url"
+CONF_MODEL = "model"
+DEFAULT_BASE_URL = "https://api.groq.com/openai/v1"
+DEFAULT_MODEL = "llama-3.1-8b-instant"
